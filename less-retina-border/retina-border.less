@@ -1,0 +1,151 @@
+/**
+ * @file 高清屏 1px 边框解决方案
+ * @author: wind-stone<wind-stone@qq.com>
+ */
+
+// 边框默认颜色
+@ligntGrayColor: #e1e1e1;
+
+/* retina 边框函数基本声明，不包含 border 部分，主要用于在 #retina-border 函数里继承 */
+#retina-border-basic {
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left:0;
+        transform-origin: left top;
+        box-sizing: border-box;
+        pointer-events: none;
+    }
+    @media (-webkit-min-device-pixel-ratio: 2) {
+        &:before {
+            width: 200%;
+            height: 200%;
+            transform: scale(.5);
+        }
+    }
+    @media (-webkit-min-device-pixel-ratio: 3) {
+        &:before {
+            width: 300%;
+            height: 300%;
+            transform: scale(1 / 3);
+        }
+    }
+}
+
+/* 设置圆角（如果圆角大于0，则添加圆角的代码） */
+#retina-border-radius(@borderRadius) when (unit(@borderRadius) > 0) {
+    border-radius: @borderRadius;
+    @media (-webkit-min-device-pixel-ratio: 2) {
+        &:before {
+            border-radius: unit(unit(@borderRadius) * 2, px);
+        }
+    }
+    @media (-webkit-min-device-pixel-ratio: 3) {
+        &:before {
+            border-radius: unit(unit(@borderRadius) * 3, px);
+        }
+    }
+}
+
+/* retina 边框函数核心声明 */
+#retina-border(@borderWidth: 1px; @borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    &:extend(#retina-border-basic all);
+    #retina-border-radius(@borderRadius);
+    &:before {
+        border-width: @borderWidth;
+        border-style: @borderStyle;
+        border-color: @borderColor;
+    }
+}
+
+/* 全边框函数及规则 */
+#retina-border-all(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(1px; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-all {
+    #retina-border(1px);
+}
+
+/* 上边框函数及规则 */
+#retina-border-top(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(1px 0 0 0; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-top {
+    #retina-border(1px 0 0 0);
+}
+
+/* 右边框函数及规则 */
+#retina-border-right(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(0 1px 0 0; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-right {
+    #retina-border(0 1px 0 0);
+}
+
+/* 下边框函数及规则 */
+#retina-border-bottom(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(0 0 1px 0; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-bottom {
+    #retina-border(0 0 1px 0);
+}
+
+/* 左边框函数及规则 */
+#retina-border-left(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(0 0 0 1px; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-left {
+    #retina-border(0 0 0 1px);
+}
+
+/* 上-右边框函数及规则 */
+#retina-border-tr(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(1px 1px 0 0; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-tr {
+    #retina-border(1px 1px 0 0);
+}
+
+/* 上-下边框函数及规则 */
+#retina-border-tb(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(1px 0; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-tb {
+    #retina-border(1px 0);
+}
+
+/* 上-左边框函数及规则 */
+#retina-border-tl(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(1px 0 0 1px; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-tl {
+    #retina-border(1px 0 0 1px);
+}
+
+/* 右-下边框函数及规则 */
+#retina-border-rb(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(0 1px 1px 0; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-rb {
+    #retina-border(0 1px 1px 0);
+}
+
+/* 右-左边框函数及规则 */
+#retina-border-rl(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(0 1px; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-rl {
+    #retina-border(0 1px);
+}
+
+/* 下-左边框函数及规则 */
+#retina-border-bl(@borderStyle: solid; @borderColor: @ligntGrayColor; @borderRadius: 0) {
+    #retina-border(0 0 1px 1px; @borderStyle; @borderColor; @borderRadius);
+}
+.retina-border-bl {
+    #retina-border(0 0 1px 1px);
+}
