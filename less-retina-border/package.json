@@ -1,0 +1,20 @@
+{
+  "name": "less-retina-border",
+  "version": "1.0.1",
+  "description": "解决移动端 1px 物理像素边框问题，less 版本",
+  "main": "index.less",
+  "scripts": {
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wind-stone/retina-border/tree/master/less-retina-border"
+  },
+  "keywords": [
+    "border",
+    "retina",
+    "less"
+  ],
+  "author": "wind-stone",
+  "license": "ISC"
+}

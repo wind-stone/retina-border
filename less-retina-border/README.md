@@ -1,17 +1,36 @@
-### 使用方式一：直接使用类名
+# less-retina-border
+
+该工具基于 less 编写，解决移动端 1px 物理像素边框问题。
+
+在 DPR = 2/3 的屏幕上会显示 0.5px/0.3333333px CSS 像素，即 1px 物理像素。
+
+注意：此方式是通过将元素的 before 伪类先放大 200%/300%，再缩小为 0.5/0.3333，元素的 before 不能再做他用，但是可以使用元素的 after 伪类。
+
+其他版本如下：
+- [stylus-retina-border](https://www.npmjs.com/package/stylus-retina-border)
+
+
+## Features
+- 可以模拟出 原生 CSS 的所有形式的边框，边框大小最小可以达到 1px 物理像素
+- 通过 继承 功能，最终产出的代码量最少
+
+
+## 使用方式
+
+### 方式一：直接使用类名
 ```
 <div class="retina-border-all">全边框</div>
 <div class="retina-border-top">上边框</div>
 <div class="retina-border-tr">上-右边框</div>
 
 ```
-直接在标签元素的class特性里添加类名，默认边框设置为
+直接在标签元素的 class 特性里添加类名，默认边框设置为
 - 边框宽度：1px
 - 边框风格：solid
 - 边框颜色：#e1e1e1
 - 边框圆角：0
 
-本解决方案提供一些内置的类名以供使用，其边框类型与类名、less 函数对应关系详见下表。
+本工具提供一些内置的类名以供使用，其边框类型与类名、less 函数对应关系详见下表。
 
 边框类型 | 类名 | less 函数
 ---|---|---
@@ -30,7 +49,7 @@
 表 1：边框类型与类名、less 函数对应关系
 
 
-### 使用方式二：调用 less 函数，不传入参数
+### 方式二：调用 less 函数，不传入参数
 
 某些场景下无法直接在class里添加类名，可通过在 less 里调用对应的 less 函数，这些 less 函数与内置的类名同名，只是在类名前添加 #，边框类型与 less 函数的对应关系请见表 1。
 
@@ -51,7 +70,7 @@
 }
 ```
 
-### 使用方式三：调用 less 函数，传递参数
+### 方式三：调用 less 函数，传递参数
 ```
 // 调用方式一：无参数名，参数值需按序传入
 .border-xxx {
@@ -100,15 +119,11 @@
 ```
 
 ### 类名及 less 函数命名方式
-- 一侧边框：[. | #]retina-border-[top | right | bottom | left]
-- 两侧边框：[. | #]retina-border-[tr | tb | tl | rb | rl | bl]
-- 四（全）边框：[. | #]retina-border-all
+- 一侧边框：retina-border-[top | right | bottom | left]
+- 两侧边框：retina-border-[tr | tb | tl | rb | rl | bl]
 
 其中，在两侧边框命名里，t 代表 top，r 代表 right，b 代表 bottom，l 代表 left，且 trbl 按上开始逆时针排序
 
-## 参数配置
-
-## 参考资料
 
 ## 版本更新
 
