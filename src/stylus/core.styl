@@ -1,13 +1,13 @@
 /**
- * @file 高清屏 1px 边框解决方案 核心函数定义
- * @author: chenxiaolongwind<chenxiaolongwind@didichuxing.com>
+ * @file retina-border 核心函数定义
+ * @author: wind-stone<wind-stone@qq.com>
  */
 
 // 边框默认颜色
 $defaultBorderColor = rgba(0, 0, 0, .08)
 
-// retina 边框函数核心声明，不包含 border 部分，主要用于在 #retina-border 函数里继承
-#retina-border-core
+// retina 边框函数基础声明，不包含 border 部分，主要用于在 retina-border 函数里继承
+#retina-border-basic
   position: relative
   &::before
     content: ''
@@ -51,7 +51,7 @@ retina-border-radius(borderRadius)
 
 // retina 边框函数声明
 retina-border(borderWidth = 1px, borderStyle = solid, borderColor = $defaultBorderColor,borderRadius = 0)
-  @extends #retina-border-core
+  @extends #retina-border-basic
   retina-border-radius(borderRadius)
   &::before
     border-width: borderWidth

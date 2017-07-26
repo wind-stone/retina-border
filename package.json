@@ -1,0 +1,19 @@
+{
+  "name": "retina-border",
+  "version": "1.0.0",
+  "description": "实现移动端 1px 物理像素边框，包括 less、stylus 版本",
+  "main": "src/less/index.less",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wind-stone/retina-border"
+  },
+  "keywords": [
+    "retina",
+    "border",
+    "subpixel",
+    "less",
+    "stylus"
+  ],
+  "author": "wind-stone <wind-stone@qq.com>",
+  "license": "ISC"
+}
