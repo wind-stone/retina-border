@@ -1,6 +1,6 @@
 # retina-border
 
-实现移动端 1px 物理像素边框，可实现任意原生的边框
+实现移动端 1px 物理像素边框，可实现任意原生的边框，包含 less、stylus 版本
 
 在 DPR = 2 的屏幕上会显示 0.5px CSS 像素，即 1px 物理像素。
 
@@ -34,14 +34,16 @@ npm install retina-border -S
 @import '~retina-border/src/stylus/index.styl'
 ```
 
+
 ### 直接下载
 
-[]()
+- [less 版](https://github.com/wind-stone/retina-border/tree/master/src/less)
+- [stylus 版](https://github.com/wind-stone/retina-border/tree/master/src/stylus)
 
-#### 文件说明
+文件说明
 
-- index.less/styl：（满足常用需求）基于 core.less/styl，暴露了 上/下/左/右/全边框 的类名及函数
-- core.less/styl：（满足定制需求）retina-border 核心函数定义声明，如果有定制需求（比如同时需要 上下边框 或者 上下右边框），可通过直接引入 core.less/styl 函数，直接使用 retina-border 函数
+- index.less/styl：（满足常用需求）引入 core.less/styl，暴露了 上/下/左/右/全边框 的类名
+- core.less/styl：（满足定制需求）retina-border 核心函数定义声明，如果有定制需求（比如同时需要 上下边框 或者 上下右边框），可跳过引入 index.less/stylus 直接引入 core.less/styl 函数，进入使用 retina-border 函数
 
 
 ## 使用
@@ -54,6 +56,7 @@ npm install retina-border -S
 右 边框 | retina-border-right | #retina-border-right | retina-border-right
 下 边框 | retina-border-bottom | #retina-border-bottom | retina-border-bottom
 左 边框 | retina-border-left | #retina-border-left | retina-border-left
+
 
 ### 通用方式：直接添加 类名，满足常用需求
 
@@ -83,5 +86,5 @@ npm install retina-border -S
 
 具体请参考：
 
-- [less]()
-- [stylus]()
+- [less](https://github.com/wind-stone/retina-border/tree/master/src/less)
+- [stylus](https://github.com/wind-stone/retina-border/tree/master/src/stylus)

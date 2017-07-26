@@ -1,6 +1,6 @@
 # retina-border 之 stylus 版
 
-查看此说明前，请先查看 [retina-border 的主说明文档]()
+查看此说明前，请先查看 [retina-border 的主说明文档](https://github.com/wind-stone/retina-border)
 
 
 ## 参数说明
